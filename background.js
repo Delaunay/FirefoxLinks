@@ -3,7 +3,7 @@ let links = new Set()
 
 const actions = {
   "AddLink": (message, sender, sendResponse) => links.add(message.link),
-  "GetLinks": (message, sender, sendResponse) => sendResponse({ data: links }),
+  "GetLinks": (message, sender, sendResponse) => sendResponse({ data: [...links] }),
   "ClearLinks": (message, sender, sendResponse) => links = new Set(),
   "PutInClipboard": (message, sender, sendResponse) => {
       navigator.clipboard.writeText(
