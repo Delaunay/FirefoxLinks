@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Downloadlinks",
+  "version": "1.0",
+
+  "description": "Save all download Links",
+
+  "icons": {
+    "48": "icons/border-48.png"
+  },
+  "permissions": [
+    "tabs",
+    "clipboardWrite"
+  ],
+  "browser_action": {
+    "default_title": "Links",
+    "default_popup": "showlinks.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.torrentgalaxy.to/*"],
+      "js": ["torrentgalaxy.js"]
+    }
+  ]
+}
